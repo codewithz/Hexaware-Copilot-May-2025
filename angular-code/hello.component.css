@@ -1,0 +1,11 @@
+h2 {
+    color: darkblue;
+  }
+  
+  button {
+    padding: 5px 10px;
+    background-color: lightblue;
+    border: none;
+    cursor: pointer;
+  }
+  
