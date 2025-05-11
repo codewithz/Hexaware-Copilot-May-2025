@@ -1,19 +1,24 @@
 public class Calculator {
 
-    public int calculate(int a, int b, String op) {
-        if (op.equals("add")) {
-            return a + b;
-        } else if (op.equals("subtract")) {
-            return a - b;
-        } else if (op.equals("multiply")) {
-            return a * b;
-        } else if (op.equals("divide")) {
-            if (b != 0) {
+    public enum Operation {
+        ADD, SUBTRACT, MULTIPLY, DIVIDE
+    }
+
+    public int calculate(int a, int b, Operation op) {
+        switch (op) {
+            case ADD:
+                return a + b;
+            case SUBTRACT:
+                return a - b;
+            case MULTIPLY:
+                return a * b;
+            case DIVIDE:
+                if (b == 0) {
+                    throw new IllegalArgumentException("Division by zero is not allowed.");
+                }
                 return a / b;
-            } else {
-                return 0;
-            }
+            default:
+                throw new UnsupportedOperationException("Invalid operation.");
         }
-        return 0;
     }
 }
